@@ -6,8 +6,8 @@
 const scrollDown = document.querySelector('#scrollDown');
 const overview = document.querySelector('nav')
     // const info = document.querySelector('#info');
-    // const homeLink = document.querySelector('#home')
-    // const home = document.querySelector('.container')
+const homeLink = document.querySelector('#home')
+const home = document.querySelector('.container')
 
 // Type variables
 const typingText = document.querySelector('#typing-text');
