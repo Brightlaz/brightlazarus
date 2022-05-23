@@ -70,12 +70,18 @@ img {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    cursor: pointer;
+    text-decoration: underline solid white 2px;
+    text-underline-offset: 5px;
 }
 
 #scrollDown p {
     margin: 0;
-    text-decoration: underline solid white 2px;
-    text-underline-offset: 5px;
+}
+
+#scrollDown:hover {
+    text-decoration: none;
+    font-weight: 600;
 }
 
 #scrollDown img {
@@ -100,5 +106,31 @@ img {
     }
     100% {
         background-color: #ccc;
+    }
+}
+
+.slideIn {
+    animation: slideIn 2s linear;
+}
+
+.slideOut {
+    animation: slideOut 2s linear;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translate3d(-1692px, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-1692px, 0, 0);
     }
 }
