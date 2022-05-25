@@ -4,9 +4,10 @@
  */
 // Scroll variables
 const slider = document.querySelector('.slider');
+const test = document.querySelector('#test')
 const slides = document.querySelectorAll('.slide');
-let counter = 1
-let size = slides[0].clientWidth
+let counter = 0;
+const size = slides[0].clientWidth
 
 const scrollDown = document.querySelector('#scrollDown');
 const overview = document.querySelector('.container2');
@@ -28,15 +29,19 @@ let charIndex = 0;
 
 
 
-// slider.style.transform = 'translateX(' + (size * counter) + ' px)';
-// info.addEventListener('click', () => {
-//     slider.style.transition = 'transform 0.4s ease-in-out';
-//     counter++;
-//     slider.style.transform = 'translateX(' + (size * counter) + 'px)';
-// })
-
-
-
+slider.style.transform = 'translateX(' + (size * counter) + ' px)';
+info.addEventListener('click', () => {
+    if (counter >= slides.length - 1) return;
+    slider.style.transition = 'transform 0.4s ease-in-out';
+    counter++;
+    slider.style.transform = 'translateX(' + (-size * counter) + 'px)';
+})
+test.addEventListener('click', () => {
+    if (counter <= 0) return;
+    slider.style.transition = 'transform 0.4s ease-in-out';
+    counter--;
+    slider.style.transform = 'translateX(' + (-size * counter) + 'px)';
+})
 
 
 function type() {
@@ -60,6 +65,7 @@ function type() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+    overview.classList.add('off')
     fixedNav();
     setTimeout(type, loadingDelay)
 
@@ -108,5 +114,4 @@ window.addEventListener('scroll', function() {
 
 function hidden(container1) {
     container1.classList.add('off')
-
 }

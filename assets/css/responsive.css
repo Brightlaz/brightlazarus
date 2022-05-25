@@ -1,0 +1,23 @@
+@media (min-width: 1200px) {
+    .contain {
+        width: 75%;
+    }
+}
+
+@media (max-width: 912px) {
+    .bio p {
+        width: 380px;
+    }
+    #c-img {
+        width: 220px;
+    }
+    #intro {
+        width: 600px;
+    }
+    #typing-text {
+        font-size: 40px;
+    }
+    .cursor {
+        font-size: 30px;
+    }
+}
