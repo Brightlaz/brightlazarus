@@ -158,6 +158,18 @@ img {
     letter-spacing: 0em;
     text-align: center;
     width: 864px;
+    animation: type3 steps(20, end) forwards;
+}
+
+.css-typing p:nth-child(3) {
+    width: 7.3em;
+    opacity: 0;
+    -webkit-animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
+    animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
 }
 
 .cursor {
@@ -301,5 +313,20 @@ footer {
     }
     100% {
         background-color: #ccc;
+    }
+}
+
+
+/* The typing effect */
+
+@keyframes type3 {
+    0% {
+        width: 0;
+    }
+    1% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
     }
 }

@@ -24,28 +24,37 @@ const home = document.querySelector('.container');
 // Type variables
 const typingText = document.querySelector('#typing-text');
 const cursor = document.querySelector('.cursor');
-const data = ["HI, I'M BRIGHT LAZARUS", "I AM A FRONT-END WEB DEVELOPER"];
-const typingDelay = 100;
+const data = ["HI, I'M BRIGHT LAZARUS", "I AM A FRONT-END", " WEB DEVELOPER"];
+const typingDelay = 200;
 const loadingDelay = 1500;
 let dataIndex = 0;
 let charIndex = 0;
 
-function makeSlider(sign, nav1, nav2, color1, color2) {
+window.addEventListener('DOMContentLoaded', () => {
+    if (nav.className !== 'nav_fixed' && home.className == 'container') {
+        overview.classList.add('off')
+        fixedNav();
+        setTimeout(type, loadingDelay)
+    } else {
+        hidden(home)
+    }
+});
+
+function makeSlider(control, nav1, nav2, color1) {
     slider.style.transition = 'transform 0.4s ease-in-out';
-    sign;
+    control;
     slider.style.transform = 'translateX(' + (-100 * counter) + '%)';
     // slider.classList.add('move')
     nav1.classList.remove('off');
     nav2.classList.add('off');
-    nav.style.backgroundColor = color1
-    nav.style.color = color2
+    nav.style.border = color1
 }
 
 slider.style.transform = 'translateX(' + (-100 * counter) + ' %)';
 // slider.classList.add('move')
 info.addEventListener('click', () => {
     if (counter >= slides.length - 1) return;
-    makeSlider(counter++, overviewNav, infoNav, 'whitesmoke', 'black');
+    makeSlider(counter++, overviewNav, infoNav, '1px solid white');
     setTimeout(() => {
         window.location = "index.html#header"
     }, 300)
@@ -53,14 +62,14 @@ info.addEventListener('click', () => {
 })
 test.addEventListener('click', () => {
     if (counter <= 0) return;
-    makeSlider(counter--, infoNav, overviewNav, 'black', 'white');
+    makeSlider(counter--, infoNav, overviewNav, 'transparent');
     setTimeout(() => {
         window.location = "index.html#header"
     }, 300)
 })
 homeLink2.addEventListener('click', () => {
     if (counter <= 0) return;
-    makeSlider(counter--, infoNav, overviewNav, 'black', 'white')
+    makeSlider(counter--, infoNav, overviewNav, 'transparent')
     setTimeout(() => {
         homeScroll()
     }, 400)
@@ -68,6 +77,7 @@ homeLink2.addEventListener('click', () => {
 })
 
 function homeScroll() {
+    window.location = "index.html#flow"
     home.classList.remove('off');
     toggle.classList.add('off')
     scroll(home)
@@ -87,35 +97,29 @@ function type() {
     if (charIndex < data[dataIndex].length) {
         if (!cursor.classList.contains('.typing')) {
             cursor.classList.add('typing');
-            toggle.classList.add('off')
         }
         typingText.innerHTML += data[dataIndex].charAt(charIndex);
         charIndex++
         setTimeout(type, typingDelay)
-    } else if (charIndex === data[1].length) {
+    } else if (charIndex === data[2].length) {
         cursor.classList.remove('typing')
-        setTimeout(() => {
-            toggle.classList.remove('off')
-        }, 200)
     } else {
         dataIndex++
-        if (dataIndex === 1) {
+        if (dataIndex === 2) {
+            setTimeout(() => {
+                toggle.classList.remove('off')
+            }, 200)
+            charIndex = 0;
+            setTimeout(type, typingDelay)
+        } else {
+            toggle.classList.add('off')
             charIndex = 0;
             typingText.innerHTML += '<br>'
             setTimeout(type, typingDelay)
+
         }
     }
 }
-
-window.addEventListener('DOMContentLoaded', () => {
-    if (!nav.classList.contains('nav_fixed')) {
-        overview.classList.add('off')
-        fixedNav();
-        setTimeout(type, loadingDelay)
-    } else {
-        hidden(home)
-    }
-});
 
 scrollDown.addEventListener('click', function() {
     overview.classList.remove('off');

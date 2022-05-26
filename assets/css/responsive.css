@@ -77,4 +77,28 @@
     footer {
         width: 250px;
     }
+    .info2 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 280px) {
+    #intro {
+        width: 220px;
+    }
+    #typing-text {
+        font-size: 20px;
+    }
+    #scrollDown {
+        width: 200px;
+        text-align: center;
+    }
+    .bio p {
+        width: 200px;
+    }
+    footer {
+        width: 200px;
+    }
 }
