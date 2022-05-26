@@ -17,6 +17,7 @@ body {
 a {
     text-decoration: underline solid black 2px;
     text-underline-offset: 5px;
+    cursor: pointer;
 }
 
 nav a {
@@ -41,8 +42,14 @@ h1 {
 
 h2 {
     font-family: 'Roboto Mono', monospace;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 600;
+}
+
+h3 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 30px;
+    font-weight: 500;
 }
 
 nav {
@@ -68,6 +75,10 @@ nav {
     padding-right: 50px;
     font-size: 20px;
     font-weight: 500;
+}
+
+#nav_bar ul li:last-child {
+    padding-right: 0;
 }
 
 #nav_bar ul {
@@ -113,6 +124,20 @@ img {
 .contain {
     margin: auto;
     width: 85%;
+}
+
+.contain2 {
+    background-color: #000000;
+    color: white;
+}
+
+.contain2 h2 {
+    margin-top: 100px;
+    margin-bottom: 0;
+}
+
+.contain2 .about {
+    margin-top: 0;
 }
 
 .slider {
@@ -175,13 +200,28 @@ img {
     width: 24px;
 }
 
-.about {
+.about,
+.about2 {
     display: flex;
     margin-top: 60px;
 }
 
+.about2 {
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 .bio {
     flex: 0 0 70%;
+}
+
+.info {
+    flex: 0 0 65%;
+}
+
+.info2 {
+    flex: 0 0 35%;
+    max-width: 35%;
 }
 
 .bio ul {
@@ -230,6 +270,10 @@ img {
     background-color: #ADADAD;
 }
 
+section {
+    margin-top: 60px;
+}
+
 footer {
     text-align: center;
     width: 539px;
@@ -258,8 +302,4 @@ footer {
     100% {
         background-color: #ccc;
     }
-}
-
-.slideIn {
-    animation: slideIn 2s linear;
 }
