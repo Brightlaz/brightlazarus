@@ -4,6 +4,23 @@
     }
 }
 
+@media (min-width: 913px) {
+    .img-a {
+        position: absolute;
+        bottom: 0;
+    }
+    .col-text {
+        height: 600px;
+    }
+    .col-text-2 {
+        height: 500px;
+    }
+    .card:hover .img-a {
+        position: absolute;
+        bottom: 10px;
+    }
+}
+
 @media (max-width: 912px) {
     .bio p {
         width: 380px;

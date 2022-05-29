@@ -24,8 +24,9 @@ const home = document.querySelector('.container');
 // Type variables
 const typingText = document.querySelector('#typing-text');
 const cursor = document.querySelector('.cursor');
-const data = ["HI, I'M BRIGHT LAZARUS", "I AM A FRONT-END", " WEB DEVELOPER"];
-const typingDelay = 200;
+// const data = ["HI, I'M BRIGHT ", "I AM A FRONT-END", " WEB DEVELOPER"];
+const data = ["HI,", " I'M", " BRIGHT", " LAZARUS", " I", " AM", " A", " FRONT-END", " WEB", " DEVELOPER"]
+const typingDelay = 120;
 const loadingDelay = 1500;
 let dataIndex = 0;
 let charIndex = 0;
@@ -92,7 +93,6 @@ function homeScroll() {
     setTimeout(type, loadingDelay);
 }
 
-
 function type() {
     if (charIndex < data[dataIndex].length) {
         if (!cursor.classList.contains('.typing')) {
@@ -101,25 +101,52 @@ function type() {
         typingText.innerHTML += data[dataIndex].charAt(charIndex);
         charIndex++
         setTimeout(type, typingDelay)
-    } else if (charIndex === data[2].length) {
+    } else if (dataIndex === 9) {
         cursor.classList.remove('typing')
     } else {
-        dataIndex++
-        if (dataIndex === 2) {
-            setTimeout(() => {
-                toggle.classList.remove('off')
-            }, 200)
-            charIndex = 0;
+        setTimeout(() => { dataIndex++ }, typingDelay)
+        if (dataIndex < data.length) {
+            charIndex = 0
             setTimeout(type, typingDelay)
-        } else {
-            toggle.classList.add('off')
-            charIndex = 0;
-            typingText.innerHTML += '<br>'
-            setTimeout(type, typingDelay)
-
+            if (dataIndex === 7) {
+                setTimeout(() => {
+                    toggle.classList.remove('off')
+                }, 200)
+            } else if (dataIndex === 3) {
+                toggle.classList.add('off')
+                charIndex = 0;
+                typingText.innerHTML += '<br>'
+            }
         }
     }
 }
+// function type() {
+//     if (charIndex < data[dataIndex].length) {
+//         if (!cursor.classList.contains('.typing')) {
+//             cursor.classList.add('typing');
+//         }
+//         typingText.innerHTML += data[dataIndex].charAt(charIndex);
+//         charIndex++
+//         setTimeout(type, typingDelay)
+//     } else if (charIndex === data[2].length) {
+//         cursor.classList.remove('typing')
+//     } else {
+//         dataIndex++
+//         if (dataIndex === 2) {
+//             setTimeout(() => {
+//                 toggle.classList.remove('off')
+//             }, 200)
+//             charIndex = 0;
+//             setTimeout(type, typingDelay)
+//         } else {
+//             toggle.classList.add('off')
+//             charIndex = 0;
+//             typingText.innerHTML += '<br>'
+//             setTimeout(type, typingDelay)
+
+//         }
+//     }
+// }
 
 scrollDown.addEventListener('click', function() {
     overview.classList.remove('off');
