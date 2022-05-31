@@ -10,6 +10,9 @@
     <!-- Links to stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <!-- Progressive image blur in stylesheet only temperoral -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.css">
 </head>
 
 <body id="body">
@@ -69,7 +72,10 @@
                         </div>
                         <div class="about-img">
                             <div id="c-img">
-                                <img src="assets/img/Group 10.png" alt="" />
+                                <div data-href="assets/img/Group 10.png" class="progressive replace">
+                                    <img src="assets/img/Group 10.png" class="preview" alt="bright image" />
+                                </div>
+                                <!-- <img src="assets/img/Group 10.png" alt="" /> -->
                             </div>
                         </div>
                     </div>
@@ -80,7 +86,12 @@
                         <div class="row">
                             <div class="col col-text card">
                                 <div class="img">
-                                    <a href="assets/img/productsio.png"><img src="assets/img/productsio.png" alt="productio website"></a>
+                                    <a href="assets/img/productsio.png">
+                                        <div data-href="assets/img/productsio.png" class="progressive replace">
+                                            <img src="assets/img/productsio.png" class="preview" alt="productio website" />
+                                        </div>
+                                        <!-- <img src="assets/img/productsio.png" alt="productio website"> -->
+                                    </a>
                                 </div>
                                 <h3>Productsio</h3>
                                 <p>
@@ -90,7 +101,12 @@
                             </div>
                             <div class="col col-text card">
                                 <div class="img">
-                                    <a href="assets/img/Bright.png"><img src="assets/img/Bright.png" alt="bright website"></a>
+                                    <a href="assets/img/Bright.png">
+                                        <div data-href="assets/img/Bright.png" class="progressive replace">
+                                            <img src="assets/img/Bright.png" class="preview" alt="bright website" />
+                                        </div>
+                                        <!-- <img src="assets/img/Bright.png" alt="bright website"> -->
+                                    </a>
                                 </div>
                                 <h3>My Port-folio website</h3>
                                 <p>
@@ -103,7 +119,12 @@
                             </div>
                             <div class="col col-text card">
                                 <div class="img">
-                                    <a href="assets/img/4926327.png"><img src="assets/img/4926327.png" alt="niralab website"></a>
+                                    <a href="assets/img/4926327.png">
+                                        <div data-href="assets/img/4926327.png" class="progressive replace">
+                                            <img src="assets/img/4926327.png" class="preview" alt="niralab website" />
+                                        </div>
+                                        <!-- <img src="assets/img/4926327.png" alt="niralab website"> -->
+                                    </a>
                                 </div>
                                 <h3>Niralab</h3>
                                 <p>
@@ -114,7 +135,12 @@
                             </div>
                             <div class="col col-text card">
                                 <div class="img">
-                                    <a href="assets/img/clinton.png"><img src="assets/img/clinton.png" alt="clinton website"></a>
+                                    <a href="assets/img/clinton.png">
+                                        <div data-href="assets/img/clinton.png" class="progressive replace">
+                                            <img src="assets/img/clinton.png" class="preview" alt="clinton website" />
+                                        </div>
+                                        <!-- <img src="assets/img/clinton.png" alt="clinton website"> -->
+                                    </a>
                                 </div>
                                 <h3>Port-folio website</h3>
                                 <p>
@@ -326,7 +352,7 @@
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.js" defer></script>
     <script src="assets/js/index.js"></script>
 </body>
 

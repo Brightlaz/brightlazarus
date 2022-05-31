@@ -182,7 +182,7 @@ homeLink2.addEventListener('click', () => {
 scrollDown.addEventListener('click', function() {
     overview.classList.remove('off');
     scroll(nav);
-    setTimeout(() => { hidden(home) }, 600)
+    setTimeout(() => { hidden(home) }, 700)
 
 })
 homeLink.addEventListener('click', function() {
