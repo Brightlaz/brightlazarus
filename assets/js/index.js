@@ -139,6 +139,7 @@ function hidden(container1) {
  */
 window.addEventListener('DOMContentLoaded', () => {
     fixedNav();
+    contain2.classList.add('off');
     if (nav.className !== 'nav_fixed') {
         overview.classList.add('off')
         setTimeout(type, loadingDelay)
