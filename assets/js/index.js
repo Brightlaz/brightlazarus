@@ -138,9 +138,9 @@ function hidden(container1) {
  * Page loaded
  */
 window.addEventListener('DOMContentLoaded', () => {
-    if (nav.className !== 'nav_fixed' && home.className == 'container') {
+    fixedNav();
+    if (nav.className !== 'nav_fixed') {
         overview.classList.add('off')
-        fixedNav();
         setTimeout(type, loadingDelay)
     } else {
         hidden(home)
