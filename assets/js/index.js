@@ -52,7 +52,7 @@ function makeSlider(control, nav1, nav2, color1, slide2, slide1) {
     nav2.classList.add('off');
     slide2.classList.remove('off');
     slide1.classList.add('off')
-    nav.style.border = color1
+    nav.style.borderBottom = color1
 }
 /**
  * To scroll to the home page
