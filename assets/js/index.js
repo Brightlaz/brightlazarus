@@ -7,11 +7,10 @@ const slider = document.querySelector('.slider');
 const test = document.querySelector('#test')
 const slides = document.querySelectorAll('.slide');
 let counter = 0;
-
-
 const scrollDown = document.querySelector('#scrollDown');
-const toggle = document.querySelector('#toggle')
 const overview = document.querySelector('.container2');
+const contain1 = document.querySelector('.contain1')
+const contain2 = document.querySelector('.contain2')
 
 const nav = document.querySelector('nav');
 const infoNav = document.querySelector('.infoNav');
@@ -21,62 +20,43 @@ const body = document.querySelector('#body');
 const homeLink = document.querySelector('#home');
 const homeLink2 = document.querySelector('#home2')
 const home = document.querySelector('.container');
+
+
 // Type variables
 const typingText = document.querySelector('#typing-text');
 const cursor = document.querySelector('.cursor');
-// const data = ["HI, I'M BRIGHT ", "I AM A FRONT-END", " WEB DEVELOPER"];
+const toggle = document.querySelector('#toggle')
 const data = ["HI,", " I'M", " BRIGHT", " LAZARUS", " I", " AM", " A", " FRONT-END", " WEB", " DEVELOPER"]
 const typingDelay = 120;
 const loadingDelay = 1500;
 let dataIndex = 0;
 let charIndex = 0;
 
-window.addEventListener('DOMContentLoaded', () => {
-    if (nav.className !== 'nav_fixed' && home.className == 'container') {
-        overview.classList.add('off')
-        fixedNav();
-        setTimeout(type, loadingDelay)
-    } else {
-        hidden(home)
-    }
-});
 
-function makeSlider(control, nav1, nav2, color1) {
+// Main functions and helper functions
+/**
+ * To make the slider effects through the pages
+ * @param {*indicates next or prev} control 
+ * @param {*make visible the present navbar} nav1 
+ * @param {*make invisible the prev navbar} nav2 
+ * @param {*border style} color1 
+ * @param {*make invisible the prev slide} slide2 
+ * @param {*make visible the present slide} slide1 
+ */
+function makeSlider(control, nav1, nav2, color1, slide2, slide1) {
     slider.style.transition = 'transform 0.4s ease-in-out';
     control;
     slider.style.transform = 'translateX(' + (-100 * counter) + '%)';
     // slider.classList.add('move')
     nav1.classList.remove('off');
     nav2.classList.add('off');
+    slide2.classList.remove('off');
+    slide1.classList.add('off')
     nav.style.border = color1
 }
-
-slider.style.transform = 'translateX(' + (-100 * counter) + ' %)';
-// slider.classList.add('move')
-info.addEventListener('click', () => {
-    if (counter >= slides.length - 1) return;
-    makeSlider(counter++, overviewNav, infoNav, '1px solid white');
-    setTimeout(() => {
-        window.location = "index.html#header"
-    }, 300)
-
-})
-test.addEventListener('click', () => {
-    if (counter <= 0) return;
-    makeSlider(counter--, infoNav, overviewNav, 'transparent');
-    setTimeout(() => {
-        window.location = "index.html#header"
-    }, 300)
-})
-homeLink2.addEventListener('click', () => {
-    if (counter <= 0) return;
-    makeSlider(counter--, infoNav, overviewNav, 'transparent')
-    setTimeout(() => {
-        homeScroll()
-    }, 400)
-
-})
-
+/**
+ * To scroll to the home page
+ */
 function homeScroll() {
     window.location = "index.html#flow"
     home.classList.remove('off');
@@ -92,7 +72,9 @@ function homeScroll() {
     charIndex = 0;
     setTimeout(type, loadingDelay);
 }
-
+/**
+ * tping effect
+ */
 function type() {
     if (charIndex < data[dataIndex].length) {
         if (!cursor.classList.contains('.typing')) {
@@ -120,34 +102,82 @@ function type() {
         }
     }
 }
-// function type() {
-//     if (charIndex < data[dataIndex].length) {
-//         if (!cursor.classList.contains('.typing')) {
-//             cursor.classList.add('typing');
-//         }
-//         typingText.innerHTML += data[dataIndex].charAt(charIndex);
-//         charIndex++
-//         setTimeout(type, typingDelay)
-//     } else if (charIndex === data[2].length) {
-//         cursor.classList.remove('typing')
-//     } else {
-//         dataIndex++
-//         if (dataIndex === 2) {
-//             setTimeout(() => {
-//                 toggle.classList.remove('off')
-//             }, 200)
-//             charIndex = 0;
-//             setTimeout(type, typingDelay)
-//         } else {
-//             toggle.classList.add('off')
-//             charIndex = 0;
-//             typingText.innerHTML += '<br>'
-//             setTimeout(type, typingDelay)
+/**
+ * Scrolling effect
+ * @param {*scroll direction} where 
+ */
+function scroll(where) {
+    window.scrollTo({
+        top: where.offsetTop,
+        behavior: 'smooth'
+    })
+}
+/**
+ * Building a fixed navbar
+ */
+function fixedNav() {
+    if (window.scrollY == home.offsetTop) {
+        if (!home.classList.contains('off'))
+            nav.classList.remove('nav_fixed')
+    } else {
+        nav.classList.add('nav_fixed')
+    }
+}
+/**
+ * To hide a page
+ * @param {*which page} container1 
+ */
+function hidden(container1) {
+    container1.classList.add('off')
+}
 
-//         }
-//     }
-// }
 
+// Event listener
+
+/**
+ * Page loaded
+ */
+window.addEventListener('DOMContentLoaded', () => {
+    if (nav.className !== 'nav_fixed' && home.className == 'container') {
+        overview.classList.add('off')
+        fixedNav();
+        setTimeout(type, loadingDelay)
+    } else {
+        hidden(home)
+    }
+});
+
+
+/**
+ * Event listeners for the page sliders controls
+ */
+slider.style.transform = 'translateX(' + (-100 * counter) + ' %)';
+// slider.classList.add('move')
+info.addEventListener('click', () => {
+    if (counter >= slides.length - 1) return;
+    makeSlider(counter++, overviewNav, infoNav, '1px solid white', contain2, infoNav);
+    setTimeout(() => {
+        window.location = "index.html#header"
+    }, 300)
+
+})
+test.addEventListener('click', () => {
+    if (counter <= 0) return;
+    makeSlider(counter--, infoNav, overviewNav, 'transparent', contain1, contain2);
+    setTimeout(() => {
+        window.location = "index.html#header"
+    }, 300)
+})
+homeLink2.addEventListener('click', () => {
+    if (counter <= 0) return;
+    makeSlider(counter--, infoNav, overviewNav, 'transparent', contain1, contain2)
+    setTimeout(() => {
+        homeScroll()
+    }, 400)
+
+})
+
+/**scrolling event listeners */
 scrollDown.addEventListener('click', function() {
     overview.classList.remove('off');
     scroll(nav);
@@ -157,28 +187,6 @@ scrollDown.addEventListener('click', function() {
 homeLink.addEventListener('click', function() {
     homeScroll()
 })
-
-
-
-function scroll(where) {
-    window.scrollTo({
-        top: where.offsetTop,
-        behavior: 'smooth'
-    })
-}
-
-function fixedNav() {
-    if (window.scrollY == home.offsetTop) {
-        if (!home.classList.contains('off'))
-            nav.classList.remove('nav_fixed')
-    } else {
-        nav.classList.add('nav_fixed')
-    }
-}
 window.addEventListener('scroll', function() {
     fixedNav();
 })
-
-function hidden(container1) {
-    container1.classList.add('off')
-}

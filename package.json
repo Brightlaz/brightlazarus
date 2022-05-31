@@ -1,0 +1,25 @@
+{
+    "name": "my-port-folio-website",
+    "version": "1.0.0",
+    "description": "My personal port-folio website",
+    "main": "index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Brightlaz/My-port-folio-website.git"
+    },
+    "author": "Bright Lazarus",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Brightlaz/My-port-folio-website/issues"
+    },
+    "homepage": "https://github.com/Brightlaz/My-port-folio-website#readme",
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-imagemin": "^8.0.0"
+    },
+    "type": "module"
+
+}

@@ -1,8 +1,13 @@
+/* For Destop screens and above */
+
 @media (min-width: 1200px) {
     .contain {
-        width: 75%;
+        width: 80%;
     }
 }
+
+
+/* For laptop screens and above */
 
 @media (min-width: 913px) {
     .img-a {
@@ -10,16 +15,19 @@
         bottom: 0;
     }
     .col-text {
-        height: 600px;
+        height: 480px;
     }
     .col-text-2 {
-        height: 500px;
+        height: 740px;
     }
     .card:hover .img-a {
         position: absolute;
         bottom: 10px;
     }
 }
+
+
+/* For Ipad screens and below */
 
 @media (max-width: 912px) {
     .bio p {
@@ -31,9 +39,6 @@
     #intro {
         width: 600px;
     }
-    #typing-text {
-        font-size: 40px;
-    }
     .cursor {
         font-size: 30px;
     }
@@ -42,20 +47,15 @@
         max-width: 100%;
         margin-bottom: 55px;
     }
-    h1 {
-        font-size: 40px;
-    }
-    h2 {
-        font-size: 30px;
-    }
-    h3 {
-        font-size: 25px;
-    }
 }
+
+
+/* For phone screens */
 
 @media (max-width: 600px) {
     #typing-text {
         font-size: 23px;
+        line-height: 40px;
     }
     #intro {
         width: 330px;
@@ -64,16 +64,17 @@
         font-size: 20px;
     }
     body {
-        font-size: 14px;
+        font-size: 12px;
+        line-height: 25px;
     }
     h1 {
         font-size: 30px;
     }
     h2 {
-        font-size: 25px;
+        font-size: 20px;
     }
     h3 {
-        font-size: 20px;
+        font-size: 15px;
     }
     .about {
         flex-wrap: wrap;
@@ -99,7 +100,13 @@
         max-width: 100%;
         text-align: center;
     }
+    #nav_bar ul li {
+        font-size: 15px;
+    }
 }
+
+
+/* Smallest size of screen */
 
 @media (max-width: 280px) {
     #intro {
