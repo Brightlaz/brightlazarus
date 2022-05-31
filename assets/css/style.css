@@ -41,11 +41,11 @@ nav a:hover {
 
 .card:hover {
     padding: 20px;
-    border: 3px solid white;
+    border: 3px solid rgb(0, 0, 0);
     cursor: grab;
     transform: translateY(-5px);
     transition-timing-function: ease-in-out;
-    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    /* box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%); */
 }
 
 .icon img:hover {
@@ -261,7 +261,7 @@ img {
 }
 
 .bio p {
-    width: 464px;
+    width: 500px;
 }
 
 #c-img {

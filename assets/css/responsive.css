@@ -15,7 +15,7 @@
         bottom: 0;
     }
     .col-text {
-        height: 480px;
+        height: 590px;
     }
     .col-text-2 {
         height: 740px;
@@ -23,6 +23,12 @@
     .card:hover .img-a {
         position: absolute;
         bottom: 10px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .col-text {
+        height: 600px;
     }
 }
 
