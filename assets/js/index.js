@@ -45,7 +45,7 @@ let charIndex = 0;
  * @param {*make invisible the prev slide} slide2 
  * @param {*make visible the present slide} slide1 
  */
-function makeSlider(control, nav1, nav2, color1, slide2, slide1) {
+function makeSlider(control, nav1, nav2, color1, slide2, slide1 = infoNav) {
     slider.style.transition = 'transform 0.4s ease-in-out';
     control;
     slider.style.transform = 'translateX(' + (-100 * counter) + '%)';
@@ -60,7 +60,11 @@ function makeSlider(control, nav1, nav2, color1, slide2, slide1) {
  * To scroll to the home page
  */
 function homeScroll() {
-    window.location = "index.html#flow"
+    const flow = document.querySelector('#flow');
+    window.scrollTo({
+        top: flow.offsetTop,
+        behavior: 'auto'
+    })
     home.classList.remove('off');
     toggle.classList.add('off')
     scroll(home)
@@ -158,17 +162,22 @@ slider.style.transform = 'translateX(' + (-100 * counter) + ' %)';
 // slider.classList.add('move')
 info.addEventListener('click', () => {
     if (counter >= slides.length - 1) return;
-    makeSlider(counter++, overviewNav, infoNav, '1px solid white', contain2, infoNav);
+    makeSlider(counter++, overviewNav, infoNav, '1px solid white', contain2);
     setTimeout(() => {
-        window.location = "index.html#header"
+        window.scrollTo({
+            top: contain2.offsetTop,
+            behavior: 'auto'
+        })
     }, 300)
-
 })
 test.addEventListener('click', () => {
     if (counter <= 0) return;
     makeSlider(counter--, infoNav, overviewNav, 'transparent', contain1, contain2);
     setTimeout(() => {
-        window.location = "index.html#header"
+        window.scrollTo({
+            top: contain1.offsetTop,
+            behavior: 'auto'
+        })
     }, 300)
 })
 homeLink2.addEventListener('click', () => {
@@ -198,5 +207,5 @@ window.addEventListener('scroll', function() {
  * Download resume
  */
 download.addEventListener('click', () => {
-    window.location = 'file:///C:/Users/Bright/Documents/GitHub/My-port-folio-website/assets/Resume/my_profile_resume.pdf'
+    window.location = 'assets/Resume/my_profile_resume.pdf'
 })
