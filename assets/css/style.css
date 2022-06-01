@@ -82,7 +82,8 @@ button {
 
 button:hover {
     transform: translate(5px, -5px);
-    box-shadow: 0 4px 8px 0 rgb(167 167 167 / 20%), 0 6px 20px 0 rgb(157 152 152 / 19%);
+    /* box-shadow: 0 4px 8px 0 rgb(167 167 167 / 20%), 0 6px 20px 0 rgb(157 152 152 / 19%); */
+    border-bottom: 3px solid white;
 }
 
 nav {
