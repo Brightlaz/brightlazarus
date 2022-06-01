@@ -45,7 +45,6 @@ nav a:hover {
     cursor: grab;
     transform: translateY(-5px);
     transition-timing-function: ease-in-out;
-    /* box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%); */
 }
 
 .icon img:hover {
@@ -70,6 +69,20 @@ h3 {
     font-family: 'Roboto Mono', monospace;
     font-size: 20px;
     font-weight: 500;
+}
+
+button {
+    margin-top: 20px;
+    background-color: transparent;
+    color: white;
+    padding: 15px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: translate(5px, -5px);
+    box-shadow: 0 4px 8px 0 rgb(167 167 167 / 20%), 0 6px 20px 0 rgb(157 152 152 / 19%);
 }
 
 nav {

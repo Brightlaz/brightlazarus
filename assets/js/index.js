@@ -21,6 +21,8 @@ const homeLink = document.querySelector('#home');
 const homeLink2 = document.querySelector('#home2')
 const home = document.querySelector('.container');
 
+// Download resume button
+const download = document.querySelector('#download')
 
 // Type variables
 const typingText = document.querySelector('#typing-text');
@@ -190,4 +192,11 @@ homeLink.addEventListener('click', function() {
 })
 window.addEventListener('scroll', function() {
     fixedNav();
+})
+
+/**
+ * Download resume
+ */
+download.addEventListener('click', () => {
+    window.location = 'file:///C:/Users/Bright/Documents/GitHub/My-port-folio-website/assets/Resume/my_profile_resume.pdf'
 })
