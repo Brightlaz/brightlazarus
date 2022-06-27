@@ -207,5 +207,5 @@ window.addEventListener('scroll', function() {
  * Download resume
  */
 download.addEventListener('click', () => {
-    window.open('assets/Resume/my_profile_resume.pdf', '_blank')
+    window.open('assets/Resume/resume.docx', '_blank')
 })
